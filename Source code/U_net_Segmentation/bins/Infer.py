@@ -67,6 +67,8 @@ if __name__ == '__main__':
     lr = 1e-3
     lrs = slice(lr/20)
     learn.load(path/'BullNetmax')
+    
+    #Attempts to continually predict a file, file should be updated by a seperate video stream
     while True:
         try:
             dl = learn.dls.test_dl(get_image_files(path/'test'))
@@ -85,7 +87,6 @@ if __name__ == '__main__':
         msg = 'RedBull,'+str(rbsize)+','+str(rbpos)+'\n'+'Cola,'+str(ccsize)+','+str(ccpos)
         print(msg)
         write2File(msg)
-    plt.imshow(im)
-    plt.show()
+  
 
     
